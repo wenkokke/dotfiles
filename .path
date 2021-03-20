@@ -1,0 +1,22 @@
+# ghcup install path
+# export PATH="$HOME/.cabal/bin:$PATH"
+# export PATH="$HOME/.ghcup/bin:$PATH"
+[ -f "/Users/wen/.ghcup/env" ] && source "/Users/wen/.ghcup/env" # ghcup-env
+
+# stack install path
+export PATH="$HOME/.local/bin:$PATH"
+
+# cargo install path
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# homebrew ruby
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+
+# opam install path
+test -r /Users/wen/.opam/opam-init/init.sh && . /Users/wen/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
+
+# findutils
+export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+
+# gnu-sed
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
