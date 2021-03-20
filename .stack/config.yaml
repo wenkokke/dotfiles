@@ -1,0 +1,15 @@
+templates:
+  params:
+    author-name: Wen Kokke
+    author-email: wenkokke@users.noreply.github.com
+    copyright: © Wen Kokke
+    github-username: wenkokke
+
+system-ghc: true
+
+install-ghc: false
+
+extra-lib-dirs:
+  - /usr/local/opt/icu4c/lib
+extra-include-dirs:
+  - /usr/local/opt/icu4c/include
