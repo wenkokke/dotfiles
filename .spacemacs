@@ -63,6 +63,10 @@ This function should only modify configuration layer settings."
      emacs-lisp
      ;; markup languages
      (latex :variables
+            latex-enable-auto-fill nil
+            latex-enable-folding nil
+            latex-enable-magic nil
+            latex-backed 'company-auctex
             latex-build-engine 'luatex)
      bibtex
      markdown
