@@ -15,8 +15,8 @@ export PATH="/usr/local/opt/ruby/bin:$PATH"
 # opam install path
 test -r /Users/wen/.opam/opam-init/init.sh && . /Users/wen/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
 
-# findutils
+# coreutils, moreutils, findutils, gnu-sed
+export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/opt/moreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-
-# gnu-sed
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
