@@ -1,12 +1,31 @@
 #!/usr/bin/env bash
 
+
+# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+function update_system() {
+    sudo softwareupdate -i -a
+    brew update
+    brew upgrade
+    brew cleanup
+    if [ -x "$(which npm)" ] ; then
+        npm install npm -g
+        npm update -g
+    fi
+    if [ -x "$(which gem)" ] ; then
+        sudo gem update --system
+        sudo gem update
+        sudo gem cleanup
+    fi
+}
+
+
 # Create a new directory and enter it
 function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
 # Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
+function finder() { # short for `cdfinder`
 	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
 }
 
@@ -45,7 +64,7 @@ function targz() {
 }
 
 # Determine size of a file or total size of a directory
-function fs() {
+function filesize() {
 	if du -b /dev/null > /dev/null 2>&1; then
 		local arg=-sbh;
 	else
@@ -84,17 +103,8 @@ function server() {
 	python -c $'import SimpleHTTPServer;\nmap = SimpleHTTPServer.SimpleHTTPRequestHandler.extensions_map;\nmap[""] = "text/plain";\nfor key, value in map.items():\n\tmap[key] = value + ";charset=UTF-8";\nSimpleHTTPServer.test();' "$port";
 }
 
-# Start a PHP server from a directory, optionally specifying the port
-# (Requires PHP 5.4.0+.)
-function phpserver() {
-	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
-	sleep 1 && open "http://${ip}:${port}/" &
-	php -S "${ip}:${port}";
-}
-
 # Compare original and gzipped file size
-function gz() {
+function gzipcompare() {
 	local origsize=$(wc -c < "$1");
 	local gzipsize=$(gzip -c "$1" | wc -c);
 	local ratio=$(echo "$gzipsize * 100 / $origsize" | bc -l);
@@ -102,14 +112,9 @@ function gz() {
 	printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
 }
 
-# Run `dig` and display the most useful info
-function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer;
-}
-
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
-function getcertnames() {
+function certnames() {
 	if [ -z "${1}" ]; then
 		echo "ERROR: No domain specified.";
 		return 1;
@@ -166,6 +171,6 @@ function o() {
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
 # small enough for one screen.
-function tre() {
-	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
+function tree() {
+	  /usr/local/bin/tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }

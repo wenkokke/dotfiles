@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Make vim the default editor.
+# Make emacs the default editor.
 export EDITOR='vim';
 
 # Enable persistent REPL history for `node`.
@@ -38,3 +38,6 @@ export BASH_SILENCE_DEPRECATION_WARNING=1;
 
 # Set AGDA_HOME
 export AGDA_HOME=~/Projects/agda
+
+# Set VCPKG_ROOT for Koka
+export VCPKG_ROOT=/usr/local/Cellar/vcpkg/2021.05.12/libexec
