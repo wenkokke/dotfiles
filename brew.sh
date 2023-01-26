@@ -40,7 +40,6 @@ brew install --cask font-dejavu-sans
 brew install --cask font-fontawesome
 brew install --cask font-freesans
 brew install --cask font-inconsolata
-brew install --cask font-linux-libertine
 brew install --cask font-mononoki
 brew install --cask font-source-code-pro
 

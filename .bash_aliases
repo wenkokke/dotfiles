@@ -135,3 +135,6 @@ function appid()
 {
     osascript -e "id of app \"$1\""
 }
+
+# Install a VSCode extension locally
+alias vscode-install='vsce package -o bundle.vsix && code --install-extension bundle.vsix'

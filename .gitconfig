@@ -102,6 +102,8 @@
 	# Speed up commands involving untracked files such as `git status`.
 	# https://git-scm.com/docs/git-update-index#_untracked_cache
 	untrackedCache = true
+	ignorecase = false
+	autocrlf = false
 
 [color]
 
@@ -131,7 +133,7 @@
 [commit]
 
 	# https://help.github.com/articles/signing-commits-using-gpg/
-	gpgsign = true
+	gpgsign = false
 
 [diff]
 
@@ -160,9 +162,6 @@
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
-[pull]
-	rebase = true
-
 # URL shorthands
 
 [url "git@github.com:"]
@@ -188,3 +187,5 @@
 [init]
 
 	defaultBranch = main
+[gpg]
+	program = gpg
