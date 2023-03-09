@@ -9,7 +9,7 @@ epubcheck
 ffmpeg
 fswatch
 gcc
-ghc
+ghcup
 git
 gnu-tar
 gnupg
