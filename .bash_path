@@ -1,16 +1,9 @@
-# Homebrew - sbin
-export PATH="/usr/local/sbin:$PATH"
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Homebrew - coreutils
-# export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-
-# Haskell - GHCup
-[ -f "/Users/wen/.ghcup/env" ] && source "/Users/wen/.ghcup/env" # ghcup-env
-
-# Rust - Cargo
-. "$HOME/.cargo/env"
-
-# Python - PyEnv
+# Haskell
+export PATH="$HOME/.ghcup/bin:$PATH"
+# Python
 export PYENV_ROOT="$HOME/.pyenv"
 command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"

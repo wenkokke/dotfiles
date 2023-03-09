@@ -4,6 +4,7 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 
 # Get the backup files
+TAPS_FILE="$SCRIPT_DIR/brew/taps.csv"
 FORMULAS_FILE="$SCRIPT_DIR/brew/formulas.csv"
 CASKS_FILE="$SCRIPT_DIR/brew/casks.csv"
 
@@ -18,15 +19,24 @@ function install
     # Upgrade any already-installed formulas.
     brew upgrade
 
+    # Install taps.
+    while read tap; do
+        echo "brew tap ${tap}" && brew tap --quiet "${tap}"
+    done < "${TAPS_FILE}"
+
     # Install formulas.
+    formulas=""
     while read formula; do
-        brew install --quiet --formula "${formula}"
+        formulas="${formulas} ${formula}"
     done < "${FORMULAS_FILE}"
+    brew install --quiet --formula $formulas
 
     # Install casks.
+    casks=""
     while read cask; do
-        brew install --quiet --cask "${cask}"
+        casks="${casks} ${cask}"
     done < "${CASKS_FILE}"
+    brew install --quiet --cask $casks
 
     # Remove outdated versions from the cellar.
     brew cleanup

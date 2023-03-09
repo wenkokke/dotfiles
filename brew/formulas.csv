@@ -1,6 +1,5 @@
 act
 bash-completion@2
-chezscheme
 cmake
 cookiecutter
 coreutils
@@ -40,3 +39,4 @@ vim
 wget
 youtube-dl
 z3
+

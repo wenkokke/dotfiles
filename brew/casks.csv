@@ -8,7 +8,7 @@ disk-inventory-x
 docker
 dropbox
 expressvpn
-font-dejavu-sans
+font-dejavu-sans-mono-nerd-font
 font-fontawesome
 font-fraunces
 font-inconsolata
@@ -40,6 +40,4 @@ visual-studio-code
 vlc
 whatsapp
 wkhtmltopdf
-zoom
-zsa-wally
 zulip
