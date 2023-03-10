@@ -39,9 +39,9 @@ export GPG_TTY=$(tty);
 # Hide the “default interactive shell is now zsh” warning on macOS.
 export BASH_SILENCE_DEPRECATION_WARNING=1;
 
-# Set VCPKG_ROOT for Koka
-export VCPKG_ROOT=/usr/local/Cellar/vcpkg/2021.05.12/libexec
-
 # Configure rbenv
 eval "$(rbenv init - bash)"
+
+# Add ICU to PKG_CONFIG_PATH
+export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
 
