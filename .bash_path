@@ -3,6 +3,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Haskell
 export PATH="$HOME/.ghcup/bin:$PATH"
+export PATH="$HOME/.cabal/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # Python
 export PYENV_ROOT="$HOME/.pyenv"
@@ -12,4 +14,3 @@ eval "$(pyenv init -)"
 # Agda
 export PATH="$HOME/.agdaup/bin:$PATH"
 export Agda_datadir="$HOME/.agdaup/data"
-
