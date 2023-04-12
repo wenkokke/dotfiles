@@ -10,11 +10,11 @@ do
     DOTFILE_HOME="${HOME}/${DOTFILE_NAME}"
     if [ -f "${DOTFILE_HOME}" ] && [ "${DOTFILE_NAME}" != ".DS_Store" ]
     then
-      if ! diff "${DOTFILE_HERE}" "${DOTFILE_HOME}" >/dev/null
-      then
-        echo "${DOTFILE_NAME}"
-        diff --color "${DOTFILE_HERE}" "${DOTFILE_HOME}"
-        echo
-      fi
+        if ! diff "${DOTFILE_HERE}" "${DOTFILE_HOME}" >/dev/null
+        then
+            echo "${DOTFILE_NAME}"
+            diff --color "${DOTFILE_HERE}" "${DOTFILE_HOME}"
+            echo
+        fi
     fi
 done
